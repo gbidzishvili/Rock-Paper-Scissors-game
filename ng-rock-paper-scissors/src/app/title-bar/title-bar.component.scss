@@ -1,0 +1,114 @@
+.container {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 375px;
+    background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    height: 100vh;
+    padding: 20px;
+    gap: 20%;
+}
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 90%;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 5px;
+}
+.title {
+    color: #fff;
+    font-weight: bold;
+    line-height: 12px;
+}
+
+.score-board {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    width: 25%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.score-header {
+    font-weight: bold;
+    font-size: 9px;
+    letter-spacing: -0.5px;
+    color: hsl(230, 89%, 62%);
+    letter-spacing: 1px;
+}
+.number {
+    font-weight: bold;
+    font-size: 36px;
+    letter-spacing: -1.5px;
+    color: hsl(217deg 10.21% 33%);
+}
+.triangle {
+    position: relative;
+}
+.paper-sciss-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    top: calc((0px - 57px) / 2);
+    left: calc((0px - 50px) / 2);
+    width: calc((0px + 50px) / 2 + 100%);
+    height: 57px;
+}
+.rock-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 57px;
+    bottom: calc((0px - 57px) / 2);
+    left: calc((0px - 57px) / 2 + 50%);
+    position: absolute;
+}
+@mixin circle-color($col1, $col2) {
+    background: linear-gradient($col1, $col2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+}
+.blue-circle {
+    @include circle-color(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    top: calc(0px - 50px);
+    left: calc(0px - 49px);
+}
+.yellow-circle {
+    @include circle-color(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    top: calc(0px - 50px);
+    right: calc(0px - 23px);
+}
+.red-circle {
+    @include circle-color(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    bottom: -48.5px;
+    left: calc(-53.5px + 50%);
+}
+.white-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border-radius: 50px;
+    background-color: #fff;
+}
+.rules {
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px 40px;
+    letter-spacing: 1px;
+}
