@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { LayoutcomponentComponent } from './layoutcomponent/layoutcomponent.component';
+import { ModalComponent } from './modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -13,8 +15,9 @@ import { LayoutcomponentComponent } from './layoutcomponent/layoutcomponent.comp
         PlaygroundComponent,
         GameRulesComponent,
         LayoutcomponentComponent,
+        ModalComponent,
     ],
-    imports: [BrowserModule],
+    imports: [BrowserModule, BrowserAnimationsModule],
     providers: [],
     bootstrap: [AppComponent],
 })

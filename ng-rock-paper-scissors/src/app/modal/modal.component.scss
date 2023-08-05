@@ -1,0 +1,27 @@
+.overlay {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 375px;
+    height: 100vh;
+    background-color: #fff;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    background: #fff;
+    padding: 20px;
+    gap: 10%;
+    position: relative;
+    justify-content: space-around;
+    box-shadow: 0 1px 1px 1px rgba(211, 211, 211, 0.87);
+    overflow-y: hidden;
+}
+.header {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+.close {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}

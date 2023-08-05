@@ -1,5 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="!modalIsOpen" [@fadeIn]>
     <app-title-bar></app-title-bar>
     <app-playground></app-playground>
-    <app-game-rules></app-game-rules>
+    <app-game-rules (openModalEvent)="toggleModal($event)"></app-game-rules>
 </div>
+<app-modal
+    [@fadeIn]
+    *ngIf="modalIsOpen"
+    (closeModalEvent)="toggleModal($event)"
+></app-modal>

@@ -3,14 +3,6 @@
     width: 220px;
     position: relative;
 }
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    height: 194px;
-    width: 220px;
-    top: 0;
-}
 
 @mixin circle-color($col1, $col2) {
     display: flex;
