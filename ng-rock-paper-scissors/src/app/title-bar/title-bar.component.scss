@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-.score-container {
+@mixin score-cont {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +13,15 @@
     border: 2px solid hsl(217, 16%, 45%);
     border-radius: 5px;
 }
-
+.score-container {
+    @include score-cont();
+}
+@media screen and (min-width: 768px) {
+    .score-container {
+        @include score-cont();
+        width: 70%;
+    }
+}
 .title {
     display: flex;
     justify-content: center;

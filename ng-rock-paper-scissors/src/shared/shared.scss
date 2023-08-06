@@ -7,6 +7,7 @@
     height: 100px;
     border-radius: 50%;
     z-index: 10;
+    justify-self: center;
 }
 .paper {
     @include circle-color(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
@@ -14,9 +15,11 @@
         right: 2px;
     }
 }
+
 .scissors {
     @include circle-color(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 }
+
 .rock {
     @include circle-color(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
 }
@@ -30,6 +33,26 @@
     border-radius: 50px;
     background-color: #fff;
 }
+@media screen and (min-width: 768px) {
+    .paper {
+        width: 150px;
+        height: 150px;
+    }
+    .scissors {
+        width: 150px;
+        height: 150px;
+    }
+    .rock {
+        width: 150px;
+        height: 150px;
+    }
+    .white-circle {
+        width: 110px;
+        height: 110px;
+        border-radius: 90px;
+    }
+}
+
 @mixin outline($color1, $color2) {
     background: linear-gradient($color1, $color2);
     display: grid;
@@ -132,4 +155,9 @@
 }
 .grid-span {
     grid-column: span 2;
+}
+.empty-circle {
+    @include circle-color(hsl(237, 49%, 15%), hsl(237, 49%, 15%));
+    top: calc(0px - 50px);
+    right: calc(0px - 23px);
 }

@@ -17,9 +17,13 @@
     </svg>
     <div class="grid-container" *ngIf="!started">
         <div
-            [ngClass]="{ 'grid-span': el['id'] === 0 }"
             *ngFor="let el of arr"
             class="{{ el['value'] }} absolute "
+            [ngClass]="{
+                'grid-span': el['id'] === 0,
+                'justify-start': el['id'] === 1,
+                'justify-end': el['id'] === 2
+            }"
             (click)="chooseSign(el['id'])"
         >
             <div class="white-circle">
@@ -39,7 +43,7 @@
         <div class="picked">YOU PICKED</div>
         <div class="picked">THE HOUSE PICKED</div>
         <div class="inner-cont">
-            <div class="{{ sign }} bounce">
+            <div class="{{ sign }} bounce center">
                 <div class="white-circle">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +59,14 @@
             </div>
         </div>
         <div class="empty-circle bounce" *ngIf="!showComp"></div>
-        <div class="{{ compChoosenSign }} emp-coord" *ngIf="showComp">
+        <div
+            class="{{ compChoosenSign }} emp-coord"
+            *ngIf="showComp"
+            [ngClass]="{
+                'justify-center': compChoosenSign === 'paper',
+                'justify-center': compChoosenSign === 'scissors'
+            }"
+        >
             <div class="white-circle">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

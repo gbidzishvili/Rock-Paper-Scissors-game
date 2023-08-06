@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100%;
 }
 .svg {
     position: absolute;
@@ -21,26 +22,33 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1.5fr;
-    width: 100%;
+    min-width: 300px;
     grid-row-gap: 10px;
 }
-.rock {
+
+.paper.justify-center {
     justify-self: center;
-    transform: translate(0, 10px);
 }
-.paper {
+.justify-start {
     justify-self: flex-start;
 }
-.scissors {
+.justify-end {
     justify-self: flex-end;
+}
+.justify-center {
+    justify-self: center;
+}
+.scissors.justify-center {
+    justify-self: center;
 }
 .lizard {
     @include circle-color(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
-    justify-self: center;
     align-self: center;
 }
 .spock {
     @include circle-color(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
-    justify-self: center;
     align-self: center;
+}
+.center {
+    justify-items: center;
 }
