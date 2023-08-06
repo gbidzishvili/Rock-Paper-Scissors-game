@@ -1,0 +1,46 @@
+@import "../../shared/shared.scss";
+:host {
+    width: 100%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    &-path {
+        transform: translate(50px, 40px);
+    }
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1.5fr;
+    width: 100%;
+    grid-row-gap: 10px;
+}
+.rock {
+    justify-self: center;
+    transform: translate(0, 10px);
+}
+.paper {
+    justify-self: flex-start;
+}
+.scissors {
+    justify-self: flex-end;
+}
+.lizard {
+    @include circle-color(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    justify-self: center;
+    align-self: center;
+}
+.spock {
+    @include circle-color(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    justify-self: center;
+    align-self: center;
+}

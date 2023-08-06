@@ -5,6 +5,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class SharedDataService {
     score$ = new BehaviorSubject<number>(10);
+    advanceModeOn = new BehaviorSubject<boolean>(false);
 
     increaseScore() {
         this.score$.next(this.score$.value + 1);
@@ -13,5 +14,9 @@ export class SharedDataService {
     decreaseScore() {
         this.score$.next(this.score$.value - 1);
         console.log(this.score$);
+    }
+    advanceModeToggle() {
+        this.advanceModeOn.next(!this.advanceModeOn.value);
+        console.log(this.advanceModeOn.value);
     }
 }

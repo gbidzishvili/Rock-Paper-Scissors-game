@@ -13,7 +13,9 @@
     position: relative;
     justify-content: space-around;
     box-shadow: 0 1px 1px 1px rgba(211, 211, 211, 0.87);
-    overflow-y: hidden;
+    overflow: hidden;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 .header {
     font-weight: bold;

@@ -1,0 +1,135 @@
+@mixin circle-color($col1, $col2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient($col1, $col2);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 10;
+}
+.paper {
+    @include circle-color(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    &-svg {
+        right: 2px;
+    }
+}
+.scissors {
+    @include circle-color(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.rock {
+    @include circle-color(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.white-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border-radius: 50px;
+    background-color: #fff;
+}
+@mixin outline($color1, $color2) {
+    background: linear-gradient($color1, $color2);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+.outline-large {
+    width: 200px;
+    height: 200px;
+    @include outline(hsl(214, 47%, 23%), hsl(237, 45%, 20%));
+}
+.outline-medium {
+    width: 170px;
+    height: 170px;
+    @include outline(hsl(214, 47%, 23%), hsl(237, 36%, 25%));
+}
+.outline-small {
+    width: 130px;
+    height: 130px;
+    @include outline(hsl(214, 47%, 23%), hsl(238, 26%, 41%));
+}
+
+@keyframes bounceIn {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    10% {
+        transform: translateY(-25px);
+    }
+    30% {
+        transform: translateY(-12px);
+    }
+    40% {
+        transform: translateY(-22px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+    70% {
+        transform: translateY(-16px);
+    }
+    90% {
+        transform: translateY(-5px);
+    }
+}
+
+.bounce {
+    animation: bounceIn 1s;
+}
+.playground-grid {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 2fr;
+    top: 0;
+    margin-bottom: 65px;
+    height: 165px;
+}
+.picked {
+    font-family: "Barlow Semi Condensed";
+    color: #fff;
+    font-weight: 500;
+    z-index: 10;
+}
+.outcome-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.outcome {
+    color: #fff;
+    font-size: 32px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.restart {
+    background-color: #fff;
+    border: none;
+    padding: 12px 36px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    color: hsl(214, 47%, 23%);
+}
+
+.inner-cont {
+    z-index: 2;
+}
+.grid-span {
+    grid-column: span 2;
+}

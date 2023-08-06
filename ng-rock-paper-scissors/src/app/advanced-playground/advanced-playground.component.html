@@ -1,25 +1,25 @@
-<div class="triangle" *ngIf="!started && !advanceModeOn.value">
+<div class="container">
     <svg
-        class="triangle-svg"
-        width="220"
-        height="194.01"
+        *ngIf="!started"
+        class="svg"
         xmlns="http://www.w3.org/2000/svg"
+        width="329"
+        height="313"
     >
         <path
-            class="triangle-path"
+            class="svg-path"
+            fill="none"
             stroke="#000"
             stroke-width="15"
-            fill="none"
+            d="M109.266 18.138L9.26 122.06l41.414 127.758h133.651L217.74 122.06 109.266 18.138z"
             opacity=".2"
-            d="M50 182.07 135.24 15.3H-39.29z"
         />
     </svg>
-
-    <div class="triangle-grid">
+    <div class="grid-container" *ngIf="!started">
         <div
-            [ngClass]="{ 'grid-span': el['id'] === 2 }"
+            [ngClass]="{ 'grid-span': el['id'] === 0 }"
             *ngFor="let el of arr"
-            class="{{ el['value'] }} absolute"
+            class="{{ el['value'] }} absolute "
             (click)="chooseSign(el['id'])"
         >
             <div class="white-circle">
@@ -34,7 +34,7 @@
         </div>
     </div>
 </div>
-<div class="cont" *ngIf="started && !advanceModeOn.value">
+<div class="cont" *ngIf="started">
     <div class="playground-grid">
         <div class="picked">YOU PICKED</div>
         <div class="picked">THE HOUSE PICKED</div>

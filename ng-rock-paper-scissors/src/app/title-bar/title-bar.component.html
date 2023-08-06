@@ -1,8 +1,12 @@
 <div class="score-container">
-    <div class="title">
-        ROCK <br />
-        PAPER <br />
-        SCISSORS
+    <div class="title" [ngClass]="{ 'advance-font': advanceModeOn }">
+        <span>ROCK</span>
+        <span>PAPER</span>
+        <span>SCISSORS</span>
+
+        <span class="advance-font" *ngIf="advanceModeOn"
+            ><span>LIZARD</span> <span>SPOCK</span></span
+        >
     </div>
     <div class="score-board">
         <span class="score-header">SCORE</span>

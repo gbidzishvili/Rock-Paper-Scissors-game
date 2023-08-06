@@ -8,11 +8,15 @@ import { SharedDataService } from 'src/shared/sharedData.service';
 })
 export class TitleBarComponent implements OnInit {
     score: number;
+    advanceModeOn = false;
     constructor(public sharedService: SharedDataService) {}
     ngOnInit() {
         this.sharedService.score$.subscribe((value) => {
             this.score = value;
             console.log(value);
         });
+        this.sharedService.advanceModeOn.subscribe(
+            (v) => (this.advanceModeOn = v)
+        );
     }
 }

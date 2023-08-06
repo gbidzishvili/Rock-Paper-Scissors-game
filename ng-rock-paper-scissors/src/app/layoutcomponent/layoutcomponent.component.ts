@@ -1,5 +1,6 @@
 import { style, transition, trigger, animate } from '@angular/animations';
 import { Component } from '@angular/core';
+import { SharedDataService } from 'src/shared/sharedData.service';
 
 @Component({
     selector: 'app-layoutcomponent',
@@ -15,7 +16,14 @@ import { Component } from '@angular/core';
     ],
 })
 export class LayoutcomponentComponent {
+    advanceModeOn;
     modalIsOpen = false;
+    constructor(public sharedService: SharedDataService) {}
+    ngOnInit() {
+        this.sharedService.advanceModeOn.subscribe(
+            (v) => (this.advanceModeOn = v)
+        );
+    }
     toggleModal(event) {
         this.modalIsOpen = !this.modalIsOpen;
     }

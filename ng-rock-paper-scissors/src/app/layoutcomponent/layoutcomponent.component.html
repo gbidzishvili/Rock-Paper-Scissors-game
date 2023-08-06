@@ -1,7 +1,8 @@
 <div class="container" *ngIf="!modalIsOpen" [@fadeIn]>
     <app-title-bar></app-title-bar>
-    <app-playground></app-playground>
-    <app-game-rules (openModalEvent)="toggleModal($event)"></app-game-rules>
+    <app-playground *ngIf="!advanceModeOn"></app-playground>
+    <app-advanced-playground *ngIf="advanceModeOn"></app-advanced-playground>
+    <app-footer (openModalEvent)="toggleModal($event)"></app-footer>
 </div>
 <app-modal
     [@fadeIn]

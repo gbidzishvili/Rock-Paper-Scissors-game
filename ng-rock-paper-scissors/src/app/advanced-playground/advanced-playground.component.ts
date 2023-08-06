@@ -1,39 +1,27 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { dimensions } from 'src/shared/shared';
-import { rules } from 'src/shared/shared';
+import { dimensions, rules } from 'src/shared/shared';
 import { SharedDataService } from 'src/shared/sharedData.service';
+
 @Component({
-    selector: 'app-playground',
-    templateUrl: './playground.component.html',
-    styleUrls: ['./playground.component.scss'],
+    selector: 'app-advanced-playground',
+    templateUrl: './advanced-playground.component.html',
+    styleUrls: ['./advanced-playground.component.scss'],
 })
-export class PlaygroundComponent {
-    started = false;
-    advanceModeOn = new BehaviorSubject(false);
-    compChoosenSign = 'scissors';
-    compChoosenSignDim;
-    mySignRulesObj;
-    choosen_width;
-    choosen_height;
-    choosen_fill;
-    choosen_d;
-    sign;
-    arr = dimensions.slice(0, 3);
-    showComp = false;
-    outcome;
+export class AdvancedPlaygroundComponent {
+    arr = dimensions;
+    started: boolean;
+    choosen_width: string;
+    choosen_height: string;
+    choosen_d: string;
+    sign: string;
+    mySignRulesObj: any;
+    compChoosenSign: string;
+    compChoosenSignDim: string[];
     timerId;
+    showComp: boolean;
+    outcome: string;
     constructor(public sharedService: SharedDataService) {}
-    ngOnInit() {
-        this.advanceModeOn = this.sharedService.advanceModeOn;
-        this.advanceModeOn.subscribe((v) => {
-            console.log(v);
-            if (v === true) {
-                this.started = false;
-                clearInterval(this.timerId);
-            }
-        });
-    }
+    ngOnInit() {}
     chooseSign(num) {
         console.log('num is: ' + num);
         this.started = !this.started;
@@ -45,7 +33,7 @@ export class PlaygroundComponent {
         this.compSign();
     }
     compSign() {
-        const rand_number = Math.floor(Math.random() * 3);
+        const rand_number = Math.floor(Math.random() * 5);
         this.compChoosenSign = this.arr[rand_number]['value'];
         this.compChoosenSignDim = this.arr[rand_number]['dim'];
         this.timerId = setTimeout(() => {
