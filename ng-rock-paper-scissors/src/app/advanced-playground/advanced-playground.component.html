@@ -1,5 +1,5 @@
 <div class="container">
-    <svg
+    <!-- <svg
         *ngIf="!started"
         class="svg"
         xmlns="http://www.w3.org/2000/svg"
@@ -12,6 +12,22 @@
             stroke="#000"
             stroke-width="15"
             d="M109.266 18.138L9.26 122.06l41.414 127.758h133.651L217.74 122.06 109.266 18.138z"
+            opacity=".2"
+        />
+    </svg> -->
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="329"
+        height="313"
+        *ngIf="!started"
+        class="svg"
+    >
+        <path
+            [ngClass]="{ 'svg-path': !isMinWidth768 }"
+            fill="none"
+            stroke="#000"
+            stroke-width="15"
+            attr.d="{{ pent_d }}"
             opacity=".2"
         />
     </svg>

@@ -52,3 +52,36 @@
 .center {
     justify-items: center;
 }
+@media screen and (min-width: 768px) {
+    .triangle {
+        &-svg {
+            transform: translate(-50%, -40%);
+        }
+        &-grid {
+            width: 550px;
+        }
+    }
+    .grid-container {
+        min-width: 450px;
+    }
+    .playground-grid {
+        gap: 20px;
+    }
+    .rock {
+        transform: translatey(20px);
+    }
+    .lizard {
+        width: 150px;
+        height: 150px;
+    }
+    .spock {
+        width: 150px;
+        height: 150px;
+    }
+    // .lizard:hover {
+    //     cursor: pointer;
+    // }
+    // .spock:hover {
+    //     cursor: pointer;
+    // }
+}

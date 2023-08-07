@@ -1,31 +1,20 @@
 <div class="triangle" *ngIf="!started && !advanceModeOn.value">
-    <!-- <svg
-        class="triangle-svg"
-        width="220"
-        height="194.01"
-        xmlns="http://www.w3.org/2000/svg"
-    >
-        <path
-            class="triangle-path"
-            stroke="#000"
-            stroke-width="15"
-            fill="none"
-            opacity=".2"
-            d="M50 182.07 135.24 15.3H-39.29z"
-        />
-    </svg> -->
     <svg
         class="triangle-svg"
-        width="313"
-        height="278"
+        [ngClass]="{
+            transformy: !started && !advanceModeOn.value && !isMinWidth768
+        }"
+        attr.width="{{ triangle_width }}"
+        attr.height="{{ triangle_height }}"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
+            [ngClass]="{ 'triangle-path': !isMinWidth768 }"
             stroke="#000"
             stroke-width="15"
             fill="none"
             opacity=".2"
-            d="M156.5 262 300 8H13z"
+            attr.d="{{ triangle_d }}"
         />
     </svg>
     <div class="triangle-grid">

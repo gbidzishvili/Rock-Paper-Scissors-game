@@ -45,7 +45,30 @@ export const dimensions = [
         ],
     },
 ];
-
+export const triangleDimensions = [
+    {
+        value: 'small',
+        dim: ['220', '194.01', 'M50 182.07 135.24 15.3H-39.29z'],
+    },
+    {
+        value: 'medium',
+        dim: ['313', '278', 'M156.5 262 300 8H13z'],
+    },
+];
+export const pentagonDimensions = [
+    {
+        value: 'small',
+        dim: [
+            'M109.266 18.138L9.26 122.06l41.414 127.758h133.651L217.74 122.06 109.266 18.138z',
+        ],
+    },
+    {
+        value: 'medium',
+        dim: [
+            'M164.5 9.27L9.26 122.06l59.296 182.495h191.888L319.74 122.06 164.5 9.271z',
+        ],
+    },
+];
 export const rules = [
     {
         value: 'rock',

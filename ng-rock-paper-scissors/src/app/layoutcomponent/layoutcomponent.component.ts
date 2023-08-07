@@ -1,4 +1,10 @@
-import { style, transition, trigger, animate } from '@angular/animations';
+import {
+    style,
+    transition,
+    trigger,
+    animate,
+    state,
+} from '@angular/animations';
 import { Component } from '@angular/core';
 import { SharedDataService } from 'src/shared/sharedData.service';
 
@@ -12,6 +18,11 @@ import { SharedDataService } from 'src/shared/sharedData.service';
                 style({ opacity: 0 }),
                 animate('300ms', style({ opacity: 1 })),
             ]),
+        ]),
+        trigger('slideInOut', [
+            state('visible', style({ transform: 'translateX(0)' })),
+            state('hidden', style({ transform: 'translateX(-100%)' })),
+            transition('visible <=> hidden', animate('0.5s ease-in-out')),
         ]),
     ],
 })

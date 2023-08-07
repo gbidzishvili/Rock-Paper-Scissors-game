@@ -9,20 +9,28 @@
     z-index: 10;
     justify-self: center;
 }
+.rock {
+    @include circle-color(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.rock {
+    cursor: pointer;
+}
 .paper {
     @include circle-color(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
     &-svg {
         right: 2px;
     }
 }
-
+.paper {
+    cursor: pointer;
+}
 .scissors {
     @include circle-color(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 }
-
-.rock {
-    @include circle-color(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+.scissors {
+    cursor: pointer;
 }
+
 .white-circle {
     display: flex;
     justify-content: center;
@@ -32,25 +40,6 @@
     border-radius: 50%;
     border-radius: 50px;
     background-color: #fff;
-}
-@media screen and (min-width: 768px) {
-    .paper {
-        width: 150px;
-        height: 150px;
-    }
-    .scissors {
-        width: 150px;
-        height: 150px;
-    }
-    .rock {
-        width: 150px;
-        height: 150px;
-    }
-    .white-circle {
-        width: 110px;
-        height: 110px;
-        border-radius: 90px;
-    }
 }
 
 @mixin outline($color1, $color2) {
@@ -160,4 +149,51 @@
     @include circle-color(hsl(237, 49%, 15%), hsl(237, 49%, 15%));
     top: calc(0px - 50px);
     right: calc(0px - 23px);
+}
+@media screen and (min-width: 768px) {
+    .paper {
+        width: 150px;
+        height: 150px;
+    }
+    // .paper:hover {
+    //     cursor: pointer;
+    // }
+    .scissors {
+        width: 150px;
+        height: 150px;
+    }
+    .rock {
+        width: 150px;
+        height: 150px;
+       
+    }
+    .transformy{
+         transform: translatey(10px);
+    }
+    .lizard {
+        width: 150px;
+        height: 150px;
+    }
+    .spock {
+        width: 150px;
+        height: 150px;
+    }
+    .white-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 90px;
+    }
+
+    .outline-large {
+        width: 250px;
+        height: 250px;
+    }
+    .outline-medium {
+        width: 220px;
+        height: 220px;
+    }
+    .outline-small {
+        width: 180px;
+        height: 180px;
+    }
 }

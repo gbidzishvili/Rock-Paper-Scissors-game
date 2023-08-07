@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { HostListener, Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
     providedIn: 'root',
@@ -6,6 +6,12 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class SharedDataService {
     score$ = new BehaviorSubject<number>(10);
     advanceModeOn = new BehaviorSubject<boolean>(false);
+    isMinWidth768 = new BehaviorSubject<boolean>(window.innerWidth >= 768);
+
+    checkWindowWidth() {
+        const isMinWidth = window.innerWidth >= 768;
+        this.isMinWidth768.next(isMinWidth); // Emit the initial value
+    }
 
     increaseScore() {
         this.score$.next(this.score$.value + 1);

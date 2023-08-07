@@ -13,7 +13,7 @@ export class TitleBarComponent implements OnInit {
     ngOnInit() {
         this.sharedService.score$.subscribe((value) => {
             this.score = value;
-            console.log(value);
+            console.log('score is ', this.score);
         });
         this.sharedService.advanceModeOn.subscribe(
             (v) => (this.advanceModeOn = v)

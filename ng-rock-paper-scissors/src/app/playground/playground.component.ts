@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { dimensions } from 'src/shared/shared';
-import { rules } from 'src/shared/shared';
+import {
+    dimensions,
+    triangleDimensions,
+    rules,
+    pentagonDimensions,
+} from 'src/shared/shared';
 import { SharedDataService } from 'src/shared/sharedData.service';
 @Component({
     selector: 'app-playground',
@@ -18,21 +22,51 @@ export class PlaygroundComponent {
     choosen_height;
     choosen_fill;
     choosen_d;
+    triangle_width;
+    triangle_height;
+    triangle_fill;
+    triangle_d;
     sign;
     arr = dimensions.slice(0, 3);
+    pentDimensions = pentagonDimensions;
     showComp = false;
     outcome;
     timerId;
+    isMinWidth768: boolean;
     constructor(public sharedService: SharedDataService) {}
+
     ngOnInit() {
         this.advanceModeOn = this.sharedService.advanceModeOn;
         this.advanceModeOn.subscribe((v) => {
-            console.log(v);
             if (v === true) {
                 this.started = false;
                 clearInterval(this.timerId);
             }
         });
+        this.sharedService.checkWindowWidth();
+        this.sharedService.isMinWidth768.subscribe((v) => {
+            this.isMinWidth768 = v;
+        });
+        this.assignTriangleDimensions();
+    }
+    assignTriangleDimensions() {
+        if (!this.isMinWidth768) {
+            this.triangle_width = triangleDimensions[0]['dim'][0];
+            this.triangle_height = triangleDimensions[0]['dim'][1];
+            this.triangle_d = triangleDimensions[0]['dim'][2];
+        } else {
+            this.triangle_width = triangleDimensions[1]['dim'][0];
+            this.triangle_height = triangleDimensions[1]['dim'][1];
+            this.triangle_d = triangleDimensions[1]['dim'][2];
+        }
+    }
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+        this.sharedService.checkWindowWidth();
+        this.sharedService.isMinWidth768.subscribe((v) => {
+            this.isMinWidth768 = v;
+        });
+        this.assignTriangleDimensions();
     }
     chooseSign(num) {
         console.log('num is: ' + num);
