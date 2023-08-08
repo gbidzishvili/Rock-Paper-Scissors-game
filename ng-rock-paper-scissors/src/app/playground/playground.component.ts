@@ -1,10 +1,18 @@
+import {
+    trigger,
+    state,
+    style,
+    transition,
+    animate,
+    keyframes,
+} from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take, timer } from 'rxjs';
 import {
     dimensions,
-    triangleDimensions,
+    // triangleDimensions,
     rules,
-    pentagonDimensions,
+    // pentagonDimensions,
 } from 'src/shared/shared';
 import { SharedDataService } from 'src/shared/sharedData.service';
 @Component({
@@ -28,11 +36,13 @@ export class PlaygroundComponent {
     triangle_d;
     sign;
     arr = dimensions.slice(0, 3);
-    pentDimensions = pentagonDimensions;
+    // pentDimensions = pentagonDimensions;
     showComp = false;
     outcome;
     timerId;
     isMinWidth768: boolean;
+    bounceStates = ['initial', 'initial', 'initial'];
+    currentIndex = 0;
     constructor(public sharedService: SharedDataService) {}
 
     ngOnInit() {
@@ -47,26 +57,14 @@ export class PlaygroundComponent {
         this.sharedService.isMinWidth768.subscribe((v) => {
             this.isMinWidth768 = v;
         });
-        this.assignTriangleDimensions();
     }
-    assignTriangleDimensions() {
-        if (!this.isMinWidth768) {
-            this.triangle_width = triangleDimensions[0]['dim'][0];
-            this.triangle_height = triangleDimensions[0]['dim'][1];
-            this.triangle_d = triangleDimensions[0]['dim'][2];
-        } else {
-            this.triangle_width = triangleDimensions[1]['dim'][0];
-            this.triangle_height = triangleDimensions[1]['dim'][1];
-            this.triangle_d = triangleDimensions[1]['dim'][2];
-        }
-    }
+
     @HostListener('window:resize', ['$event'])
     onResize(event: any) {
         this.sharedService.checkWindowWidth();
         this.sharedService.isMinWidth768.subscribe((v) => {
             this.isMinWidth768 = v;
         });
-        this.assignTriangleDimensions();
     }
     chooseSign(num) {
         console.log('num is: ' + num);

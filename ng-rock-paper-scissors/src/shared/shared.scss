@@ -137,6 +137,7 @@
     letter-spacing: 1px;
     border-radius: 5px;
     color: hsl(214, 47%, 23%);
+    z-index: 2;
 }
 
 .inner-cont {
@@ -151,49 +152,48 @@
     right: calc(0px - 23px);
 }
 @media screen and (min-width: 768px) {
-    .paper {
-        width: 150px;
-        height: 150px;
+    .cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    // .paper:hover {
-    //     cursor: pointer;
-    // }
-    .scissors {
-        width: 150px;
-        height: 150px;
+    .playground-grid-3fr {
+        grid-template-columns: 1fr 1fr 1fr;
     }
-    .rock {
-        width: 150px;
-        height: 150px;
-       
+    .playground-grid {
+        width: 90%;
+        gap: 1rem;
     }
-    .transformy{
-         transform: translatey(10px);
+}
+@media screen and (min-width: 768px) {
+    .title {
+        line-height: 18px;
+        font-size: 22px;
     }
-    .lizard {
-        width: 150px;
-        height: 150px;
+    .score-header {
+        font-size: 14px;
     }
-    .spock {
-        width: 150px;
-        height: 150px;
+    .number {
+        font-size: 44px;
     }
-    .white-circle {
-        width: 120px;
-        height: 120px;
-        border-radius: 90px;
+}
+@media screen and (min-width: 1366px) {
+    .title {
+        line-height: 21px;
+        font-size: 25px;
     }
-
-    .outline-large {
-        width: 250px;
-        height: 250px;
+    .score-header {
+        font-size: 18px;
     }
-    .outline-medium {
-        width: 220px;
-        height: 220px;
+    .number {
+        font-size: 48px;
     }
-    .outline-small {
-        width: 180px;
-        height: 180px;
+    .playground-grid {
+        width: 75%;
+        gap: 1rem;
+    }
+    .title {
+        line-height: 21px;
+        font-size: 25px;
     }
 }

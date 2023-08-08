@@ -1,20 +1,4 @@
 <div class="container">
-    <!-- <svg
-        *ngIf="!started"
-        class="svg"
-        xmlns="http://www.w3.org/2000/svg"
-        width="329"
-        height="313"
-    >
-        <path
-            class="svg-path"
-            fill="none"
-            stroke="#000"
-            stroke-width="15"
-            d="M109.266 18.138L9.26 122.06l41.414 127.758h133.651L217.74 122.06 109.266 18.138z"
-            opacity=".2"
-        />
-    </svg> -->
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="329"
@@ -23,11 +7,11 @@
         class="svg"
     >
         <path
-            [ngClass]="{ 'svg-path': !isMinWidth768 }"
+            class="svg-path"
             fill="none"
             stroke="#000"
             stroke-width="15"
-            attr.d="{{ pent_d }}"
+            d="M109.266 18.138L9.26 122.06l41.414 127.758h133.651L217.74 122.06 109.266 18.138z"
             opacity=".2"
         />
     </svg>
@@ -38,7 +22,8 @@
             [ngClass]="{
                 'grid-span': el['id'] === 0,
                 'justify-start': el['id'] === 1,
-                'justify-end': el['id'] === 2
+                'justify-end': el['id'] === 2,
+                
             }"
             (click)="chooseSign(el['id'])"
         >
@@ -55,8 +40,12 @@
     </div>
 </div>
 <div class="cont" *ngIf="started">
-    <div class="playground-grid">
+    <div
+        class="playground-grid"
+        [ngClass]="{ 'playground-grid-3fr': showComp && isMinWidth768 }"
+    >
         <div class="picked">YOU PICKED</div>
+        <div *ngIf="showComp && isMinWidth768"></div>
         <div class="picked">THE HOUSE PICKED</div>
         <div class="inner-cont">
             <div class="{{ sign }} bounce center">
@@ -73,6 +62,10 @@
                     <div class="outline-small" *ngIf="showComp"></div>
                 </div>
             </div>
+        </div>
+        <div class="outcome-message" *ngIf="showComp && isMinWidth768">
+            <div class="outcome">{{ outcome }}</div>
+            <button class="restart" (click)="restart()">PLAY AGAIN</button>
         </div>
         <div class="empty-circle bounce" *ngIf="!showComp"></div>
         <div
@@ -94,7 +87,7 @@
             </div>
         </div>
     </div>
-    <div class="outcome-message" *ngIf="showComp">
+    <div class="outcome-message" *ngIf="showComp && !isMinWidth768">
         <div class="outcome">{{ outcome }}</div>
         <button class="restart" (click)="restart()">PLAY AGAIN</button>
     </div>

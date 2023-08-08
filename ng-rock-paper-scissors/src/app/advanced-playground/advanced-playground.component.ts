@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { dimensions, pentagonDimensions, rules } from 'src/shared/shared';
+import { dimensions, rules } from 'src/shared/shared';
 import { SharedDataService } from 'src/shared/sharedData.service';
 
 @Component({
@@ -21,7 +21,6 @@ export class AdvancedPlaygroundComponent {
     showComp: boolean;
     outcome: string;
     isMinWidth768;
-    pentdimesnios = pentagonDimensions;
     pent_d;
     constructor(public sharedService: SharedDataService) {}
     ngOnInit() {
@@ -29,24 +28,13 @@ export class AdvancedPlaygroundComponent {
         this.sharedService.isMinWidth768.subscribe((v) => {
             this.isMinWidth768 = v;
         });
-        this.assignPentagonDimensions();
     }
     @HostListener('window:resize', ['$event'])
     onResize(event: any) {
         this.sharedService.checkWindowWidth();
-        this.assignPentagonDimensions();
         this.sharedService.isMinWidth768.subscribe((v) => {
             this.isMinWidth768 = v;
         });
-    }
-    assignPentagonDimensions() {
-        if (!this.isMinWidth768) {
-            this.pent_d = this.pentdimesnios[0]['dim'];
-            console.log(this.pent_d);
-        } else {
-            this.pent_d = this.pentdimesnios[1]['dim'];
-            console.log(this.pent_d);
-        }
     }
     chooseSign(num) {
         this.started = !this.started;

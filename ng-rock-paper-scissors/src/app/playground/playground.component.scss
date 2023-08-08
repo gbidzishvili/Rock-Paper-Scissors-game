@@ -29,17 +29,6 @@
         gap: 30px;
     }
 }
-@media screen and (min-width: 768px) {
-    .triangle {
-        &-svg {
-            transform: translate(-50%, -40%);
-        }
-        &-grid {
-            width: 550px;
-        }
-    }
-}
-
 .emp-coord {
     top: calc(0px - 50px);
     right: calc(0px - 23px);

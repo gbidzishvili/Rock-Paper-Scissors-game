@@ -2,24 +2,27 @@
     <svg
         class="triangle-svg"
         [ngClass]="{
-            transformy: !started && !advanceModeOn.value && !isMinWidth768
+            
+            transformy: !started && !advanceModeOn.value && !isMinWidth768,
         }"
-        attr.width="{{ triangle_width }}"
-        attr.height="{{ triangle_height }}"
+        width="220"
+        height="194.01"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
-            [ngClass]="{ 'triangle-path': !isMinWidth768 }"
+            class="triangle-path"
             stroke="#000"
             stroke-width="15"
             fill="none"
             opacity=".2"
-            attr.d="{{ triangle_d }}"
+            d="M50 182.07 135.24 15.3H-39.29z"
         />
     </svg>
     <div class="triangle-grid">
         <div
-            [ngClass]="{ 'grid-span': el['id'] === 2 }"
+            [ngClass]="{
+                'grid-span': el['id'] === 2,
+            }"
             *ngFor="let el of arr"
             class="{{ el['value'] }} absolute"
             (click)="chooseSign(el['id'])"
@@ -37,8 +40,12 @@
     </div>
 </div>
 <div class="cont" *ngIf="started && !advanceModeOn.value">
-    <div class="playground-grid">
+    <div
+        class="playground-grid"
+        [ngClass]="{ 'playground-grid-3fr': showComp && isMinWidth768 }"
+    >
         <div class="picked">YOU PICKED</div>
+        <div *ngIf="showComp && isMinWidth768"></div>
         <div class="picked">THE HOUSE PICKED</div>
         <div class="inner-cont">
             <div class="{{ sign }} bounce">
@@ -56,6 +63,10 @@
                 </div>
             </div>
         </div>
+        <div class="outcome-message" *ngIf="showComp && isMinWidth768">
+            <div class="outcome">{{ outcome }}</div>
+            <button class="restart" (click)="restart()">PLAY AGAIN</button>
+        </div>
         <div class="empty-circle bounce" *ngIf="!showComp"></div>
         <div class="{{ compChoosenSign }} emp-coord" *ngIf="showComp">
             <div class="white-circle">
@@ -69,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="outcome-message" *ngIf="showComp">
+    <div class="outcome-message" *ngIf="showComp && !isMinWidth768">
         <div class="outcome">{{ outcome }}</div>
         <button class="restart" (click)="restart()">PLAY AGAIN</button>
     </div>
