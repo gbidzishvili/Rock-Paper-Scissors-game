@@ -1,9 +1,14 @@
-<div class="container" *ngIf="!modalIsOpen" [@fadeIn]>
+<div class="container" *ngIf="!modalIsOpen || isMinWidth768" [@fadeIn]>
     <app-title-bar></app-title-bar>
-    <app-playground [@slideInOut] *ngIf="!advanceModeOn"></app-playground>
+    <app-playground
+        [@slideInOut]
+        *ngIf="!advanceModeOn"
+        [ngClass]="{ 'z-index': modalIsOpen }"
+    ></app-playground>
     <app-advanced-playground
         [@slideInOut]
         *ngIf="advanceModeOn"
+        [ngClass]="{ 'z-index': modalIsOpen }"
     ></app-advanced-playground>
     <app-footer (openModalEvent)="toggleModal($event)"></app-footer>
 </div>

@@ -12,3 +12,9 @@
     position: relative;
     overflow-y: hidden;
 }
+app-modal {
+    z-index: 100;
+}
+.z-index {
+    z-index: 0;
+}

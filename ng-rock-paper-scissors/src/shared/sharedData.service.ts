@@ -9,7 +9,7 @@ export class SharedDataService {
     isMinWidth768 = new BehaviorSubject<boolean>(window.innerWidth >= 768);
     checkWindowWidth() {
         const isMinWidth = window.innerWidth >= 768;
-        this.isMinWidth768.next(isMinWidth); // Emit the initial value
+        this.isMinWidth768.next(isMinWidth);
     }
     increaseScore() {
         this.score$.next(this.score$.value + 1);

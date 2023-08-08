@@ -16,7 +16,7 @@ import { SharedDataService } from 'src/shared/sharedData.service';
         trigger('fadeIn', [
             transition(':enter', [
                 style({ opacity: 0 }),
-                animate('300ms', style({ opacity: 1 })),
+                animate('100ms', style({ opacity: 1 })),
             ]),
         ]),
         trigger('slideInOut', [
@@ -29,11 +29,15 @@ import { SharedDataService } from 'src/shared/sharedData.service';
 export class LayoutcomponentComponent {
     advanceModeOn;
     modalIsOpen = false;
+    isMinWidth768;
     constructor(public sharedService: SharedDataService) {}
     ngOnInit() {
         this.sharedService.advanceModeOn.subscribe(
             (v) => (this.advanceModeOn = v)
         );
+        this.sharedService.isMinWidth768.subscribe((v) => {
+            this.isMinWidth768 = v;
+        });
     }
     toggleModal(event) {
         this.modalIsOpen = !this.modalIsOpen;
